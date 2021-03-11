@@ -23,11 +23,10 @@
 \textit{IIIT Allahabad}\\
 }
 \and
-\IEEEauthorblockN{2\textsuperscript{nd} Given Name Surname}
-\IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
-\textit{name of organization (of Aff.)}\\
-City, Country \\
-email address or ORCID}
+\IEEEauthorblockN{2\textsuperscript{nd} Adelik Om Tyagi (IIT2019070)}
+\IEEEauthorblockA{\textit{B.Tech Information Technology} \\
+\textit{IIIT Allahabad}\\
+}
 \and
 \IEEEauthorblockN{3\textsuperscript{rd} Given Name Surname}
 \IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
@@ -39,8 +38,7 @@ email address or ORCID}
 \maketitle
 
 \begin{abstract}
-This document is a model and instructions for \LaTeX.
-Please observe the conference page limits. 
+In this paper, we have devised 2 algorithms to find the number of possible sequences of length n such that each of the next element is greater than or equal to twice of the previous element but less than or equal to m, while optimizing time and space complexity. We have determined both the time, and the space complexity of our algorithm by illustrating through some graphs.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -48,15 +46,36 @@ component, formatting, style, styling, insert
 \end{IEEEkeywords}
 
 \section{Introduction}
-This document is a model and instructions for \LaTeX.
-Please observe the conference page limits. 
+For finding the number of possible sequences of length n such that each of the next element is greater than or equal to twice of the previous element but less than or equal to m can be solved using recursion.
+Recursion is the process of repeating items in a self-similar way. In programming languages, if a program allows you to call a function inside the same function, then it is called a recursive call of the function.
+\newline
+As we know wherever we see a recursive solution that has repeated calls for the same inputs, we can optimize it using Dynamic Programming.
+The idea is to simply store the results of sub-problems, so that we do not have to re-compute them when needed later. This simple optimization reduces time complexities from exponential to polynomial.
+\newline
+As per the given condition the n-th value of the sequence can be at most m. There can be two cases for n-th element.
+\begin{enumerate}
+\item If it is m, then the (n-1)th element is at most m/2. We recur for m/2 and n-1.
+\item If it is not m, then it is at most m-1. We recur for (m-1) and n.
+\end{enumerate}
+The total number of sequences is the sum of the number of sequences including m and the number of sequences where m is not included. Thus the original problem of finding number of sequences of length n with max value m can be subdivided into independent sub-problems of finding number of sequences of length n with max value m-1 and number of sequences of length n-1 with max value m/2.
 
 \section{ALGORITHM 1}
 
 \subsection{ALGORITHM DESIGN}
+\begin{enumerate}
+\item Take input of integers n and m in variables n and m respectively.
 
-This document is a model and instructions for \LaTeX.
-Please observe the conference page limits. 
+\item Call for the solve function with parameters as n and m which will give the answer.
+
+\item Solve function is using a recursive approach to find the answer.
+
+\item Base cases for this function is when m becomes zero then we will return zero and also when n will become one then we will return m.
+
+\item Create a new variable ret initialized with zero and looping from 1 to m and adding answers from 1 to m in ret by recursively calling the solve function for smaller input.
+
+\item Return the value of ret which has the final answer.
+
+\end{enumerate}
 
 \subsection{ALGORITHM }
 
@@ -110,7 +129,7 @@ First we Fix M=300 and vary N from 1 to 7
     \end{tabular} 
 \end{center}
 
-\includegraphics[width=10cm, height=10cm]{Figure_1.png}
+\includegraphics[width=8cm, height=8cm]{Figure_1.png}
 
 Now we Fix n=4 and vary M from 1 to 100
 
@@ -142,8 +161,25 @@ Now we Fix n=4 and vary M from 1 to 100
 
 \subsection{ALGORITHM DESIGN}
 
-This document is a model and instructions for \LaTeX.
-Please observe the conference page limits. 
+\begin{enumerate}
+\item Take input of integers n and m in variables n and m respectively. 
+\item Call for the isZero function with parameters as n and m which will check whether the answer exists or not. 
+\item If $n>=60$ then return true as our algorithm works till long long int.Also if m < 2 to the power n-1 then we cannot have the sequence of length n having max value upto m so return true. And if the return value is true or it does not exist then we exit after printing 0.
+\item Else using we create a vector of vectors mem of n+1 rows and m+1 columns and initializing it to -1.
+\item Call the solve function with parameters n,m,mem which uses recursion with memoization (Dynamic Programming) to find the answer.
+\item Base cases for this function is when the isZero function with n,m as parameters return true then return zero and also when n will become one then we will return m.
+\item Check if the value at n,m in the mem vector is not -1 then we return mem[n][m] as answer for this n,m is stored in the previous call of the solve function on n,m.
+\item As per the given condition the n-th value of the sequence can be at most m. There can be two cases for n-th element.
+\newline
+   (i) If it is m, then the (n-1)th element is at most m/2. We recur for m/2 and n-1.
+   \newline
+   (ii) If it is not m, then it is at most m-1. We recur for (m-1) and n.
+   \newline
+ So we recursive call for the solve function with parameters  n,m-1,mem and n-1,m/2,mem and add the return values from both and store it in mem[n][m] so if further this n,m is called then we can  return its value without computation as we have stored.
+\item Final answer is returned from the solve function and displayed.
+
+
+\end{enumerate}
 
 \subsection{ALGORITHM }
 
@@ -199,7 +235,7 @@ First we Fix N=10 and vary M from 1 to 100000
     \end{tabular} 
 \end{center}
 
-\includegraphics[width=10cm, height=10cm]{Figure_3.png}
+\includegraphics[width=8cm, height=8cm]{Figure_3.png}
 
 Now we Fix m=1000000 and vary n from 1 to 100
 
@@ -240,4 +276,3 @@ acknowledgments in the unnumbered footnote on the first page.
 \end{thebibliography}
 
 \end{document}
-
