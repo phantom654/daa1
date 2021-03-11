@@ -1,0 +1,243 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{graphicx} %package to manage images
+\graphicspath{ {.} }
+\newlist{steps}{enumerate}{1}
+\setlist[steps, 1]{label = Step \arabic*:}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\begin{document}
+
+\title{Sequences of given length where every element is more than or equal to twice of previous\\
+}
+
+\author{\IEEEauthorblockN{1\textsuperscript{st} Sumit Kumar Sahu (IIT2019069)}
+\IEEEauthorblockA{\textit{B.Tech Information Technology} \\
+\textit{IIIT Allahabad}\\
+}
+\and
+\IEEEauthorblockN{2\textsuperscript{nd} Given Name Surname}
+\IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
+\textit{name of organization (of Aff.)}\\
+City, Country \\
+email address or ORCID}
+\and
+\IEEEauthorblockN{3\textsuperscript{rd} Given Name Surname}
+\IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
+\textit{name of organization (of Aff.)}\\
+City, Country \\
+email address or ORCID}
+}
+
+\maketitle
+
+\begin{abstract}
+This document is a model and instructions for \LaTeX.
+Please observe the conference page limits. 
+\end{abstract}
+
+\begin{IEEEkeywords}
+component, formatting, style, styling, insert
+\end{IEEEkeywords}
+
+\section{Introduction}
+This document is a model and instructions for \LaTeX.
+Please observe the conference page limits. 
+
+\section{ALGORITHM 1}
+
+\subsection{ALGORITHM DESIGN}
+
+This document is a model and instructions for \LaTeX.
+Please observe the conference page limits. 
+
+\subsection{ALGORITHM }
+
+\textbf{Input:} N(length of sequence) and M(upper bound on sequence elements)
+
+\textbf{Output:} Number of possible sequences of length n such that each of the next element is greater than or equal to twice of the previous element but less than or equal to m.
+
+\textbf{Method:}
+
+\begin{enumerate}
+    \item call the solve function with parameters as n and m: solve(n,m);
+    \item if $m<=0$ return 0
+    \item if $n==1$ return m
+    \item Declare and Initialise ret with 0.
+    \item Loop the current element(i) of the sequence from 1 to m.
+    \setlength{\itemindent}{+.5in}
+    \item call the solve function with parameters n-1 and i/2. Add the returned value to ret
+    \setlength{\itemindent}{0in}
+	\item return ret;
+	
+\end{enumerate}
+
+
+\subsection{APRIORI ANALYSIS }
+
+This document is a model and instructions for \LaTeX.
+Please observe the conference page limits. 
+
+\subsection{APOSTERIORI ANALYSIS }
+
+First we Fix M=300 and vary N from 1 to 7
+\begin{center}
+   \begin{tabular}{|c|c|}
+   \hline
+   N & Time \\
+   \hline\hline
+    1 & 0 \\
+    \hline
+    2 & 3 \\
+    \hline
+    3 & 224 \\
+    \hline
+    4 & 4493 \\
+    \hline
+    5 & 34892 \\
+    \hline
+    6 & 112558 \\
+    \hline
+    7 & 246904 \\
+    \hline
+    \end{tabular} 
+\end{center}
+
+\includegraphics[width=10cm, height=10cm]{Figure_1.png}
+
+Now we Fix n=4 and vary M from 1 to 100
+
+\begin{center}
+   \begin{tabular}{|c|c|}
+   \hline
+   N & Time \\
+   \hline\hline
+    1 & 0 \\
+    \hline
+    16 & 0 \\
+    \hline
+    30 & 3 \\
+    \hline
+    40 & 7 \\
+    \hline
+    50 & 13 \\
+    \hline
+    60 & 22 \\
+    \hline
+    100 & 99 \\
+    \hline
+    \end{tabular} 
+\end{center}
+
+\includegraphics[width=8cm, height=8cm]{Figure_2.png}
+
+\section{ALGORITHM 2}
+
+\subsection{ALGORITHM DESIGN}
+
+This document is a model and instructions for \LaTeX.
+Please observe the conference page limits. 
+
+\subsection{ALGORITHM }
+
+\textbf{Input:} N(length of sequence) and M(upper bound on sequence elements)
+
+\textbf{Output:} Number of possible sequences of length n such that each of the next element is greater than or equal to twice of the previous element but less than or equal to m.
+
+\textbf{Method of isZero(n,m)}
+
+\begin{enumerate}
+    \item if $n>=60$ return false;
+    \item if $m<2^{n-1}$ return false;
+\end{enumerate}
+
+\textbf{Method of solve(n,m)}
+
+\begin{enumerate}
+    \item Check if the answer is 0. If found 0 return.
+    \item if n==1 return m
+    \item if mem[n][m]!=-1 return mem[n][m]
+    \item Call solve for n,m-1 and n-1,m/2 and assign their sum in mem[n][m]
+	
+\end{enumerate}
+
+\subsection{APRIORI ANALYSIS }
+
+This document is a model and instructions for \LaTeX.
+Please observe the conference page limits. 
+
+\subsection{APOSTERIORI ANALYSIS }
+
+First we Fix N=10 and vary M from 1 to 100000
+
+\begin{center}
+   \begin{tabular}{|c|c|}
+   \hline
+   M & Time \\
+   \hline\hline
+    1 & 0 \\
+    \hline
+    2001 & 180 \\
+    \hline
+    9001 & 224 \\
+    \hline
+    43001 & 4282 \\
+    \hline
+    78001 & 7857 \\
+    \hline
+    88001 & 8701 \\
+    \hline
+    99001 & 9704 \\
+    \hline
+    \end{tabular} 
+\end{center}
+
+\includegraphics[width=10cm, height=10cm]{Figure_3.png}
+
+Now we Fix m=1000000 and vary n from 1 to 100
+
+\begin{center}
+   \begin{tabular}{|c|c|}
+   \hline
+   N & Time \\
+   \hline\hline
+    1 & 12205 \\
+    \hline
+    16 & 130887 \\
+    \hline
+    30 & 0 \\
+    \hline
+    40 & 0 \\
+    \hline
+    50 & 0 \\
+    \hline
+    60 & 0 \\
+    \hline
+    100 & 0 \\
+    \hline
+    \end{tabular} 
+\end{center}
+
+\includegraphics[width=8cm, height=8cm]{Figure_4.png}
+
+\section*{CONCLUSION}
+
+The preferred spelling of the word ``acknowledgment'' in America is without 
+an ``e'' after the ``g''. Avoid the stilted expression ``one of us (R. B. 
+G.) thanks $\ldots$''. Instead, try ``R. B. G. thanks$\ldots$''. Put sponsor 
+acknowledgments in the unnumbered footnote on the first page.
+
+\begin{thebibliography}{00}
+\bibitem{b1} G. Eason, B. Noble, and I. N. Sneddon, ``On certain integrals of Lipschitz-Hankel type involving products of Bessel functions,'' Phil. Trans. Roy. Soc. London, vol. A247, pp. 529--551, April 1955.
+\bibitem{b2} J. Clerk Maxwell, A Treatise on Electricity and Magnetism, 3rd ed., vol. 2. Oxford: Clarendon, 1892, pp.68--73.
+\end{thebibliography}
+
+\end{document}
+
