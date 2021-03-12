@@ -157,6 +157,15 @@ Now we Fix n=4 and vary M from 1 to 100
 
 \includegraphics[width=8cm, height=8cm]{Figure_2.png}
 
+
+From these two graphs we can conclude that complexity is exponential in 'n' and polynomial in 'm'
+
+\subsection{TIME COMPLEXITY}
+
+Worst case : O($m^{n}$)
+
+Best case  : $\Omega$(1) when n=1
+
 \section{ALGORITHM 2}
 
 \subsection{ALGORITHM DESIGN}
@@ -237,6 +246,8 @@ First we Fix N=10 and vary M from 1 to 100000
 
 \includegraphics[width=8cm, height=8cm]{Figure_3.png}
 
+From above graph we can conclude that complexity is linear in 'm'.
+
 Now we Fix m=1000000 and vary n from 1 to 100
 
 \begin{center}
@@ -262,6 +273,14 @@ Now we Fix m=1000000 and vary n from 1 to 100
 \end{center}
 
 \includegraphics[width=8cm, height=8cm]{Figure_4.png}
+
+In above graph complexity first increases linearly with 'n', but as 'n' increases the isZero() function calculates the answer in O(1) and graph gets merged with the x-axis. 
+
+\subsection{TIME COMPLEXITY}
+
+Worst case : O(min(n,$log_2$($MAX_M$))*m)
+
+Best case  : $\Omega$(1) when answer is 0
 
 \section*{CONCLUSION}
 
