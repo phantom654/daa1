@@ -265,7 +265,7 @@ Best case  : $\Omega$(1) when n=1
 \begin{enumerate}
 \item Take input of integers n and m in variables n and m respectively. 
 \item Call for the isZero function with parameters as n and m which will check whether the answer exists or not. 
-\item If $n>=60$ then return true as our algorithm works till long long int.Also if m < 2 to the power n-1 then we cannot have the sequence of length n having max value upto m so return true. And if the return value is true or it does not exist then we exit after printing 0.
+\item If $n>=60$ then return true as our algorithm works till long long int.Also if m $<$ 2 to the power n-1 then we cannot have the sequence of length n having max value upto m so return true. And if the return value is true or it does not exist then we exit after printing 0.
 \item Else using we create a vector of vectors mem of n+1 rows and m+1 columns and initializing it to -1.
 \item Call the solve function with parameters n,m,mem which uses recursion with memoization (Dynamic Programming) to find the answer.
 \item Base cases for this function is when the isZero function with n,m as parameters return true then return zero and also when n will become one then we will return m.
