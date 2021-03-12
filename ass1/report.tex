@@ -100,9 +100,101 @@ The total number of sequences is the sum of the number of sequences including m 
 
 
 \subsection{APRIORI ANALYSIS }
-
-This document is a model and instructions for \LaTeX.
-Please observe the conference page limits. 
+\begin{center}
+   \begin{tabular}{|c|c|c|c}
+   \hline
+   Step&Time&FreqBest&Freq \\
+   \hline\hline
+   Step1 & 1 & 1 &  1 \\
+    \hline
+   Step2 & 1 & 1 &  m$^{n}$\\
+    \hline
+   Step3 & 1 & 1 &  m$^{n}$\\
+    \hline
+   Step4 & 1 & 1 &  m$^{n}$\\
+    \hline
+  Step5 & 1 & 1 &  m$^{n}$\\
+  \hline
+  Step6 & 1 & 1 &  m$^{n}$\\
+    \hline
+    Step7 & 1 & 1 &  m$^{n}$ \\
+    \hline
+    \end{tabular} 
+\end{center}
+For Best Case
+\newline
+T$\Omega$ $\alpha$ 1*1+1*1+1*1+1*1+1*1+1*1+1*1
+\newline
+T$\Omega$ $\alpha$ 7
+\newline
+Thus, the best case time complexity is O(1) when n=1 OR m is non positive
+\newline
+For Worst Case
+\newline
+T$\Omega$ $\alpha$ 1*  m$^{n}$+1* m$^{n}$+1* m$^{n}$+1* m$^{n}$+1* m$^{n}$+1*  m$^{n}$+1* m$^{n}$
+\newline
+T$\Omega$ $\alpha$ 7* m$^{n}$
+\newline
+Clearly this equation will come out to be of the exponential form .
+\newline
+Thus , worst case time complexity is O( m$^{n}$)
+\newline
+Space complexity is O(1)
+\newline
+Time complexity –
+\newline
+Fix m=30 and vary n
+\newline
+\begin{center}
+   \begin{tabular}{|c|c|}
+   \hline
+   n & Time \\
+   \hline\hline
+    1 & 0.3 \\
+    \hline
+    2 & 0.9 \\
+    \hline
+    3 & 270 \\
+    \hline
+    5 & 243000 \\
+    \hline
+    6 & 7290000 \\
+    \hline
+    7 & 218700000 \\
+    \hline
+    \end{tabular} 
+\end{center}
+\includegraphics[width=8cm,height=8cm]{Figureone1.png}
+\newline
+Fix n=3 and vary m
+\newline
+\begin{center}
+   \begin{tabular}{|c|c|}
+   \hline
+   N & Time \\
+   \hline\hline
+    1 & 0.03 \\
+    \hline
+    2 & 20000 \\
+    \hline
+    3 & 40000 \\
+    \hline
+    5 & 60000 \\
+    \hline
+    6 & 80000 \\
+    \hline
+    7 & 120000 \\
+    \hline
+    8 & 140000 \\
+    \hline
+    10 & 160000 \\
+    \hline
+    12 & 180000 \\
+    \hline
+    \end{tabular} 
+\end{center}
+\includegraphics[width=8cm,height=8cm]{Figureone2.png}
+\newline
 
 \subsection{APOSTERIORI ANALYSIS }
 
@@ -214,9 +306,108 @@ Best case  : $\Omega$(1) when n=1
 \end{enumerate}
 
 \subsection{APRIORI ANALYSIS }
-
-This document is a model and instructions for \LaTeX.
-Please observe the conference page limits. 
+\begin{center}
+   \begin{tabular}{|c|c|c|c}
+   \hline
+   Step&Time&FreqBest&Freq \\
+   \hline\hline
+    Step1&1&1&1 \\
+    \hline
+   Step2&1&1&1\\
+    \hline
+   Step3&1&1&n*m\\
+    \hline
+   Step4&1&1&n*m\\
+    \hline
+  Step5&1&0&n*m\\
+    \hline
+    Step6&2&0&n*m-m \\
+    \hline
+    \end{tabular} 
+\end{center}
+For Best Case
+\newline
+T$\Omega$ $\alpha$ 1*1+1*1+1*1+1*1+1*0+2*0
+\newline
+T$\Omega$ $\alpha$ 4
+\newline
+Thus, the best case time complexity is O(1) when n=1
+\newline
+For Worst Case
+\newline
+T$\Omega$ $\alpha$ 1*1+1*1+1*(n*m)+1*(n*m)+1*(n*m)+1*(n*m-m)
+\newline
+T$\Omega$ $\alpha$ 3+4*(n*m)-m
+\newline
+Clearly this equation will come out to be of the quadratic form .
+\newline
+Thus , worst case time complexity is O(n*m)
+\newline
+Space complexity is O(n*m)
+\newline
+Time complexity –
+\newline
+Fix n=6 and vary m
+\newline
+\begin{center}
+   \begin{tabular}{|c|c|}
+   \hline
+   m & Time \\
+   \hline\hline
+    1 & 0.01 \\
+    \hline
+    70 & 4.2 \\
+    \hline
+    700 & 42 \\
+    \hline
+    7000 & 420 \\
+    \hline
+    10000 & 600 \\
+    \hline
+    12000 & 720 \\
+    \hline
+    \end{tabular} 
+\end{center}
+\includegraphics[width=8cm,height=8cm]{Figuresec1.png}
+\newline
+Fix m=1000000 and vary n
+\begin{center}
+   \begin{tabular}{|c|c|}
+   \hline
+   N & Time \\
+   \hline\hline
+    1 & 10000 \\
+    \hline
+    2 & 20000 \\
+    \hline
+    4 & 40000 \\
+    \hline
+    6 & 60000 \\
+    \hline
+    8 & 80000 \\
+    \hline
+    12& 120000 \\
+    \hline
+    14 & 140000 \\
+    \hline
+    16 & 160000 \\
+    \hline
+    18 & 180000 \\
+    \hline
+    20 & 0.01 \\
+    \hline
+    22 & 0.01 \\
+    \hline
+    24 & 0.01 \\
+    \hline
+    25 & 0.01 \\
+    \hline
+    28 & 0.01 \\
+    \hline
+    \end{tabular} 
+\end{center}
+\includegraphics[width=8cm,height=8cm]{Figuresec_2.png}
+\newline
 
 \subsection{APOSTERIORI ANALYSIS }
 
@@ -284,10 +475,7 @@ Best case  : $\Omega$(1) when answer is 0
 
 \section*{CONCLUSION}
 
-The preferred spelling of the word ``acknowledgment'' in America is without 
-an ``e'' after the ``g''. Avoid the stilted expression ``one of us (R. B. 
-G.) thanks $\ldots$''. Instead, try ``R. B. G. thanks$\ldots$''. Put sponsor 
-acknowledgments in the unnumbered footnote on the first page.
+Our second algorithm which we solved by divide and conquer is more efficient because unlike recursive solution  it is storing the result of every function call and hence is not making same function calls multiple times. It has a time complexity and space complexity of O(min(n,log$_{2}$(M))*m).
 
 \begin{thebibliography}{00}
 \bibitem{b1} CP-Algorithms : Divide and Conquer Algorithm.
